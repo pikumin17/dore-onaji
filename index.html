@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>どれが おなじ？</title>
+  <link rel="apple-touch-icon" href="assets/icon.png">
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="assets/manifest.js"></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main>
+    <section id="screen-loading">
+      <p id="load-count">読み込み中 0 / 0</p>
+      <progress id="load-progress" aria-label="画像の読み込み"></progress>
+      <p id="load-error" role="alert" hidden></p>
+    </section>
+    <section id="screen-title" hidden>
+      <h1>どれが おなじ？<small>3Dブロックみくらべ</small></h1>
+      <p class="rule">見本と おなじ形を 3つから えらぼう。見本は 左右にドラッグで まわせるよ。</p>
+      <canvas id="title-canvas" aria-label="3Dブロックの見本"></canvas>
+      <button id="btn-start" disabled>スタート</button>
+      <p id="title-best" class="best" hidden></p>
+    </section>
+    <section id="screen-play" hidden>
+      <header>
+        <p id="question"></p>
+        <p>スコア <strong id="score">0</strong></p>
+      </header>
+      <canvas id="ref-canvas" aria-label="見本。左右にドラッグで回る"></canvas>
+      <div class="controls">
+        <button id="btn-left" aria-label="左に回す">◀</button>
+        <button id="btn-right" aria-label="右に回す">▶</button>
+      </div>
+      <div class="choices">
+        <button class="cand" aria-label="候補1"><img draggable="false" alt=""><span aria-hidden="true"></span></button>
+        <button class="cand" aria-label="候補2"><img draggable="false" alt=""><span aria-hidden="true"></span></button>
+        <button class="cand" aria-label="候補3"><img draggable="false" alt=""><span aria-hidden="true"></span></button>
+      </div>
+    </section>
+    <section id="screen-result" hidden>
+      <h2>けっか</h2>
+      <p id="record" hidden>新記録！</p>
+      <dl>
+        <div><dt>スコア</dt><dd id="result-score"></dd></div>
+        <div><dt>正解数</dt><dd id="result-correct"></dd></div>
+        <div><dt>合計時間</dt><dd id="result-time"></dd></div>
+      </dl>
+      <p id="result-best" class="best" hidden></p>
+      <button id="btn-retry">もう一度</button>
+      <button id="btn-title" class="secondary">タイトルへ</button>
+    </section>
+    <div id="live" aria-live="polite" class="visually-hidden"></div>
+  </main>
+</body>
+</html>
